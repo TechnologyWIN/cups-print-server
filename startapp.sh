@@ -1,3 +1,3 @@
 #!/bin/sh
 
-exec /usr/bin/xterm
+exec /usr/bin/system-config-printer
