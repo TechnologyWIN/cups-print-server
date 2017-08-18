@@ -1,8 +1,8 @@
 # Blah
-FROM ubuntu:16.04
+FROM jlesage/baseimage-gui:alpine-3.6
 MAINTAINER Henry Burroughs <henry@technologywin.com>
 RUN apt-get update && apt-get install -y \
-	cups \
+	cups xterm \
 	hp-ppd \
 	openprinting-ppds \
 	printer-driver-all \
@@ -11,7 +11,9 @@ RUN apt-get update && apt-get install -y \
 
 VOLUME ["/etc/cups","/var/log/cups","/var/spool/cups","/var/cache/cups"]
 
-CMD ls 
+COPY startapp.sh /startapp.sh 
 
 EXPOSE 631
+
+ENV APP_NAME="gnome-print-config"
 
